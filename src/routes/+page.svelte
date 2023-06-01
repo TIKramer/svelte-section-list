@@ -1,19 +1,33 @@
-<script lang="ts">
+<script>
 	import { DraggableSections } from '$lib';
-	import type { ItemType } from '$lib';
+	import CustomItemComponent from './components/CustomItemComponent.svelte';
+	import CustomSectionComponent from './components/CustomSectionComponent.svelte';
+	import CustomItemContainer from './components/CustomItemContainer.svelte';
+	import CustomSectionContainer from './components/CustomSectionContainer.svelte';
 
-	let items: ItemType[] = [
-		{ id: 1, name: 'Item 1' },
-		{ id: 2, name: 'Item 2' },
-		{ id: 3, name: 'Item 3' },
-		{ id: 4, name: 'Item 4' },
-		{ id: 5, name: 'Item 5' }
+	const items = [
+		{ id: 1, name: 'Custom Item 1' },
+		{ id: 2, name: 'Custom Item 2' },
+		{ id: 3, name: 'Custom Item 3' }
 	];
 
-	let sections = [
-		{ title: 'Food I like', items: [] },
-		{ title: 'Food I hate', items: [] }
+	const sections = [
+		{
+			title: 'Custom Section 1',
+			items: [
+				{ id: 4, name: 'Custom Item 4' },
+				{ id: 5, name: 'Custom Item 5' }
+			]
+		},
+		{ title: 'Custom Section 2', items: [] }
 	];
 </script>
 
-<DraggableSections {items} bind:sections />
+<DraggableSections
+	{items}
+	{sections}
+	ItemComponent={CustomItemComponent}
+	SectionComponent={CustomSectionComponent}
+	ItemContainer={CustomItemContainer}
+	SectionContainer={CustomSectionContainer}
+/>

@@ -6,12 +6,13 @@
 	import DefaultSection from './DefaultSection.svelte';
 	import Item from './Item.svelte';
 	import Section from './Section.svelte';
+	import type { SvelteComponent } from 'svelte';
 	export let items: ItemType[];
 	export let sections: SectionType[];
 	export let ItemComponent = DefaultItem;
-	export let SectionComponent = DefaultSection;
-	export let ItemContainer = DefaultItemContainer;
-	export let SectionContainer = DefaultSectionContainer;
+	export let SectionComponent: typeof SvelteComponent = DefaultSection;
+	export let ItemContainer: typeof SvelteComponent = DefaultItemContainer;
+	export let SectionContainer: typeof SvelteComponent = DefaultSectionContainer;
 
 	function allowDrop(event: DragEvent) {
 		event.preventDefault();
