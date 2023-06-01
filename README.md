@@ -1,4 +1,4 @@
-# svelte-section-list
+a# svelte-section-list
 
 This is a headless Svelte npm package that provides drag-and-drop functionality for managing items and sections. It offers a flexible and customizable solution for implementing drag-and-drop interactions in your Svelte applications.
 
