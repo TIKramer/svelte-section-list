@@ -209,6 +209,8 @@ An optional prop to provide a custom container component for organizing and disp
 
 ## Examples
 
+An example usage can be seen in the route directory: https://github.com/TIKramer/svelte-section-list/tree/main/src/routes
+
 ## Contributions
 
 Contributions to the svelte-section-list library are welcome! If you would like to contribute, please follow these guidelines:
