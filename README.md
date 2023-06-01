@@ -1,8 +1,9 @@
-a# svelte-section-list
+# svelte-section-list
 
 This is a headless Svelte npm package that provides drag-and-drop functionality for managing items and sections. It offers a flexible and customizable solution for implementing drag-and-drop interactions in your Svelte applications.
 
 ## Demo
+Have a play with it here: https://main--transcendent-begonia-7a3d6f.netlify.app/
 
 Being headless means you have 100% control over the styles:
 
