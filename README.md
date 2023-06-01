@@ -7,8 +7,8 @@ This is a headless Svelte npm package that provides drag-and-drop functionality 
 Being headless means you have 100% control over the styles:
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/TIKramer/svelte-section-list/blob/main/screenshots/default.gif" width="300" height="350"/> 
-    <img src="https://github.com/TIKramer/svelte-section-list/blob/main/screenshots/custom.gif" width="300" height="350"/> 
+    <img src="https://github.com/TIKramer/svelte-section-list/blob/main/screenshots/default.gif" width="350" height="400"/> 
+    <img src="https://github.com/TIKramer/svelte-section-list/blob/main/screenshots/custom.gif" width="350" height="400"/> 
 </div>
 
 ## Getting started 👨‍🏫
