@@ -212,6 +212,7 @@ An optional prop to provide a custom container component for organizing and disp
 
 An example usage can be seen in the route directory: https://github.com/TIKramer/svelte-section-list/tree/main/src/routes
 
+A live example can be found here: https://main--transcendent-begonia-7a3d6f.netlify.app/
 ## Contributions
 
 Contributions to the svelte-section-list library are welcome! If you would like to contribute, please follow these guidelines:
