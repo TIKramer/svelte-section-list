@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
+		"build-site": "vite build",
 		"prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -27,7 +28,7 @@
 	"bugs": {
 		"url": "https://github.com/TIKramer/svelte-section-list/issues"
 	},
-	"homepage": "https://github.com/TIKramer/svelte-section-list#readme",
+	"homepage": "https://github.com/TIKramer/svelte-section-list",
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/"
 	},
