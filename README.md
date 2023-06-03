@@ -3,6 +3,7 @@
 This is a headless Svelte npm package that provides drag-and-drop functionality for managing items and sections. It offers a flexible and customizable solution for implementing drag-and-drop interactions in your Svelte applications.
 
 ## Demo
+
 Have a play with it here: https://main--transcendent-begonia-7a3d6f.netlify.app/
 
 Being headless means you have 100% control over the styles:
@@ -97,23 +98,22 @@ const sections: SectionType[] = [
 
 An optional prop to provide a custom component used to render individual items. The component should accept an item prop of type ItemType. For example the default is:
 
-```javascript
-
+```svelte
 <script lang="ts">
-    export let item: ItemType;
+	export let item: ItemType;
 </script>
 
 <div class={'item'}>
-  {item && item.name}
+	{item && item.name}
 </div>
 
 <style>
-  .item {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-    cursor: move;
-  }
+	.item {
+		border: 1px solid black;
+		padding: 10px;
+		margin: 10px;
+		cursor: move;
+	}
 </style>
 ```
 
@@ -121,36 +121,33 @@ An optional prop to provide a custom component used to render individual items. 
 
 An optional prop to provide a custom component used to render individual sections. The component should accept a section prop of type SectionType. For example the default is:
 
-```javascript
-
+```svelte
 <script lang="ts">
-  export let section: SectionType;
+	export let section: SectionType;
 </script>
 
 <div class="section">
-  <h2>{section && section.title}</h2>
-  <slot />
+	<h2>{section && section.title}</h2>
+	<slot />
 </div>
 
 <style>
-  .section {
-    display: inline-block;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-    min-width: 200px;
-    min-height: 100px;
-  }
+	.section {
+		display: inline-block;
+		border: 1px solid black;
+		padding: 10px;
+		margin: 10px;
+		min-width: 200px;
+		min-height: 100px;
+	}
 </style>
-
 ```
 
 ### ItemContainerComponent (Optional)
 
-An optional prop to provide a custom container component for organizing and displaying items. The component should include a <slot /> element to allow the rendering of individual items. For example:
+An optional prop to provide a custom container component for organizing and displaying items. The component should include a <slot/> element to allow the rendering of individual items. For example:
 
-```javascript
-
+```svelte
 <div class="container">
 	<h2>Items</h2>
 	<slot />
@@ -161,14 +158,13 @@ An optional prop to provide a custom container component for organizing and disp
 		min-height: 100px;
 	}
 </style>
-
 ```
 
 ### SectionContainerComponent (Optional)
 
 An optional prop to provide a custom container component for organizing and displaying sections. The component should include a <slot /> element to allow the rendering of individual sections. For example:
 
-```javascript
+```svelte
 <div>
 	<h2>Sections</h2>
 	<slot />
@@ -177,7 +173,7 @@ An optional prop to provide a custom container component for organizing and disp
 
 ## Usage
 
-```js
+```svelte
 <script>
 	import { DraggableSections } from 'svelte-section-list';
 	import CustomItemComponent from './CustomItemComponent.svelte';
@@ -192,7 +188,13 @@ An optional prop to provide a custom container component for organizing and disp
 	];
 
 	const sections = [
-		{ title: 'Section 1', items: [{ id: 4, name: 'Item 4' }, { id: 5, name: 'Item 5' }]} ,
+		{
+			title: 'Section 1',
+			items: [
+				{ id: 4, name: 'Item 4' },
+				{ id: 5, name: 'Item 5' }
+			]
+		},
 		{ title: 'Section 2', items: [] }
 	];
 </script>
@@ -205,7 +207,14 @@ An optional prop to provide a custom container component for organizing and disp
 	ItemContainerComponent={CustomItemContainer}
 	SectionContainerComponent={CustomSectionContainer}
 />
+```
 
+## Retrieving Values
+
+To retrieve the current state of the items and sections after drag-and-drop interactions, you can bind to the necessary values using the bind:items and/or bind:sections syntax. For example:
+
+```svelte
+<DraggableSections {items} bind:sections />
 ```
 
 ## Examples
@@ -213,6 +222,7 @@ An optional prop to provide a custom container component for organizing and disp
 An example usage can be seen in the route directory: https://github.com/TIKramer/svelte-section-list/tree/main/src/routes
 
 A live example can be found here: https://main--transcendent-begonia-7a3d6f.netlify.app/
+
 ## Contributions
 
 Contributions to the svelte-section-list library are welcome! If you would like to contribute, please follow these guidelines:
