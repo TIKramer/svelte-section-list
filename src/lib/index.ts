@@ -4,7 +4,7 @@ import type { ItemType, SectionType } from '$lib/types/types';
 
 export { DraggableSections };
 
-export { ItemType, SectionType };
+export type { ItemType, SectionType };
 
 export default {
 	DraggableSections
