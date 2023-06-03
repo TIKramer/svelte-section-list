@@ -15,6 +15,8 @@
 	<p>Headless means you have 100% control over the styles!</p>
 	<button class="button" on:click={() => handleClick('/base-example')}>Basic example</button>
 	<button class="button" on:click={() => handleClick('/custom-example')}>Custom example</button>
+	<button class="button" on:click={() => handleClick('/reverse-example')}>Reverse example</button>
+
 	<div class="footer">
 		<p>
 			For more information, visit the package's <a
