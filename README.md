@@ -173,6 +173,32 @@ An optional prop to provide a custom container component for organizing and disp
 
 ## Usage
 
+### Basic usage
+
+```svelte
+<script lang="ts">
+	import { DraggableSections } from 'svelte-section-list';
+	import type { ItemType } from 'svelte-section-list';
+
+	let items: ItemType[] = [
+		{ id: 1, name: 'Wash sink' },
+		{ id: 2, name: 'Brush teeth' },
+		{ id: 3, name: 'Flush toilet' }
+	];
+
+	let sections = [
+		{ title: 'Todo', items: [] },
+		{ title: 'Done', items: [] }
+	];
+</script>
+
+<div class="container">
+	<DraggableSections {items} bind:sections />
+</div>
+```
+
+### Custom usage
+
 ```svelte
 <script>
 	import { DraggableSections } from 'svelte-section-list';
