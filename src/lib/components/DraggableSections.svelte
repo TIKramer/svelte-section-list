@@ -11,8 +11,8 @@
 	export let sections: SectionType[];
 	export let ItemComponent = DefaultItem;
 	export let SectionComponent: typeof SvelteComponent = DefaultSection;
-	export let ItemContainer: typeof SvelteComponent = DefaultItemContainer;
-	export let SectionContainer: typeof SvelteComponent = DefaultSectionContainer;
+	export let ItemContainerComponent: typeof SvelteComponent = DefaultItemContainer;
+	export let SectionContainerComponent: typeof SvelteComponent = DefaultSectionContainer;
 
 	function allowDrop(event: DragEvent) {
 		event.preventDefault();
@@ -79,7 +79,7 @@
 	}
 </script>
 
-<svelte:component this={SectionContainer}>
+<svelte:component this={SectionContainerComponent}>
 	{#each sections as section}
 		<Section {SectionComponent} {section} handleDrop={drop}>
 			{#each section.items as item}
@@ -89,7 +89,7 @@
 	{/each}
 </svelte:component>
 <div on:drop={(e) => drop(e, null)} on:dragover={allowDrop}>
-	<svelte:component this={ItemContainer}>
+	<svelte:component this={ItemContainerComponent}>
 		{#each items as item}
 			<Item {item} {ItemComponent} />
 		{/each}

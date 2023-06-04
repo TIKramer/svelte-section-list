@@ -28,6 +28,6 @@
 	{sections}
 	ItemComponent={CustomItemComponent}
 	SectionComponent={CustomSectionComponent}
-	ItemContainer={CustomItemContainer}
-	SectionContainer={CustomSectionContainer}
+	ItemContainerComponent={CustomItemContainer}
+	SectionContainerComponent={CustomSectionContainer}
 />
