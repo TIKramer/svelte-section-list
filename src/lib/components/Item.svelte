@@ -62,7 +62,14 @@
 		on:touchstart|passive={touchstart}
 		on:touchend|passive={touchend}
 		on:touchmove|passive={touchmove}
+		class="item"
 	>
 		<svelte:component this={ItemComponent} {item} />
 	</div>
 {/key}
+
+<style>
+	.item {
+		touch-action: none;
+	}
+</style>
