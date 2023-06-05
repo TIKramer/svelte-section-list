@@ -13,6 +13,8 @@
 	export let SectionComponent: typeof SvelteComponent = DefaultSection;
 	export let ItemContainerComponent: typeof SvelteComponent = DefaultItemContainer;
 	export let SectionContainerComponent: typeof SvelteComponent = DefaultSectionContainer;
+
+	const OFFSET = 25;
 	let sectionRefs: SvelteComponent[] = [];
 	let itemListRef: HTMLDivElement | undefined = undefined;
 
@@ -88,7 +90,8 @@
 				top: rect.top + window.pageYOffset,
 				left: rect.left + window.pageXOffset,
 				bottom: rect.bottom + window.pageYOffset,
-				right: rect.right + window.pageXOffset
+				right: rect.right + window.pageXOffset,
+				scrollY: document.documentElement.scrollTop
 			};
 			return screenPosition;
 		}
@@ -96,9 +99,23 @@
 		return null;
 	}
 
+	function isItemWithinBoundry(
+		screenPosition: { top: number; left: number; bottom: number; right: number; scrollY: number },
+		itemX: number,
+		itemY: number
+	) {
+		return (
+			itemX >= screenPosition.left - OFFSET &&
+			itemX <= screenPosition.right + OFFSET &&
+			itemY + window.scrollY >= screenPosition.top - OFFSET &&
+			itemY + window.scrollY <= screenPosition.bottom + OFFSET
+		);
+	}
+
 	function handleTouchEnd(event: CustomEvent) {
 		const pageX = event.detail.changedTouches[0].clientX;
 		const pageY = event.detail.changedTouches[0].clientY;
+
 		const from = event.detail.from;
 
 		sectionRefs.forEach((ref, index) => {
@@ -113,19 +130,6 @@
 		} else {
 			//none
 		}
-	}
-
-	function isItemWithinBoundry(
-		screenPosition: { top: number; left: number; bottom: number; right: number },
-		itemX: number,
-		itemY: number
-	) {
-		return (
-			itemX >= screenPosition.left &&
-			itemX <= screenPosition.right &&
-			itemY >= screenPosition.top &&
-			itemY <= screenPosition.bottom
-		);
 	}
 </script>
 

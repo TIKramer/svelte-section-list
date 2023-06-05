@@ -15,24 +15,28 @@
 
 	export function getScreenPosition() {
 		const rect = ref.getBoundingClientRect();
+
 		screenPosition = {
 			top: rect.top + window.pageYOffset,
 			left: rect.left + window.pageXOffset,
 			bottom: rect.bottom + window.pageYOffset,
-			right: rect.right + window.pageXOffset
+			right: rect.right + window.pageXOffset,
+			scrollY: document.documentElement.scrollTop
 		};
 		return screenPosition;
 	}
 </script>
 
-<div
-	class="section"
-	id={`section-${section.title}`}
-	bind:this={ref}
-	on:drop={(e) => handleDrop(e, section)}
-	on:dragover={allowDrop}
->
-	<svelte:component this={SectionComponent} {section}>
-		<slot />
-	</svelte:component>
-</div>
+{#key section}
+	<div
+		class="section"
+		id={`section-${section.title}`}
+		bind:this={ref}
+		on:drop={(e) => handleDrop(e, section)}
+		on:dragover={allowDrop}
+	>
+		<svelte:component this={SectionComponent} {section}>
+			<slot />
+		</svelte:component>
+	</div>
+{/key}

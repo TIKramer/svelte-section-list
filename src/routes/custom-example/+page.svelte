@@ -8,7 +8,9 @@
 	let items = [
 		{ id: 1, name: 'Custom Item 1' },
 		{ id: 2, name: 'Custom Item 2' },
-		{ id: 3, name: 'Custom Item 3' }
+		{ id: 3, name: 'Custom Item 3' },
+		{ id: 4, name: 'Custom Item 6' },
+		{ id: 5, name: 'Custom Item 7' }
 	];
 
 	let sections = [
@@ -21,7 +23,6 @@
 		},
 		{ title: 'Custom Section 2', items: [] }
 	];
-
 </script>
 
 <DraggableSections

@@ -3,13 +3,13 @@
 	export let section: SectionType;
 </script>
 
-<div class="section">
+<div class="container">
 	<h2>{section && section.title}</h2>
 	<slot />
 </div>
 
 <style>
-	.section {
+	.container {
 		display: inline-block;
 		border: 1px solid black;
 		padding: 10px;

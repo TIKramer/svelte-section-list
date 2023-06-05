@@ -27,7 +27,7 @@
 	function touchmove(event: TouchEvent) {
 		let touchLocation = event.targetTouches[0];
 		let pageX = Math.floor(touchLocation.pageX) + 'px';
-		let pageY = Math.floor(touchLocation.pageY) + 'px';
+		let pageY = Math.floor(touchLocation.pageY - 50) + 'px';
 		const target = event.target as HTMLElement | null;
 		if (target) {
 			target.style.position = 'absolute';
