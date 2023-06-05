@@ -2,6 +2,10 @@
 
 This is a headless Svelte npm package that provides drag-and-drop functionality for managing items and sections. It offers a flexible and customizable solution for implementing drag-and-drop interactions in your Svelte applications.
 
+## Update
+
+Now much faster for IOS - by using ontouch over draggable
+
 ## Demo
 
 Have a play with it here: https://main--transcendent-begonia-7a3d6f.netlify.app/

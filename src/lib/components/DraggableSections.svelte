@@ -13,6 +13,8 @@
 	export let SectionComponent: typeof SvelteComponent = DefaultSection;
 	export let ItemContainerComponent: typeof SvelteComponent = DefaultItemContainer;
 	export let SectionContainerComponent: typeof SvelteComponent = DefaultSectionContainer;
+	let sectionRefs: SvelteComponent[] = [];
+	let itemListRef: HTMLDivElement | undefined = undefined;
 
 	function allowDrop(event: DragEvent) {
 		event.preventDefault();
@@ -77,21 +79,69 @@
 			}
 		});
 	}
+
+	export function getItemListScreenPosition() {
+		const rect = itemListRef?.getBoundingClientRect();
+
+		if (rect) {
+			const screenPosition = {
+				top: rect.top + window.pageYOffset,
+				left: rect.left + window.pageXOffset,
+				bottom: rect.bottom + window.pageYOffset,
+				right: rect.right + window.pageXOffset
+			};
+			return screenPosition;
+		}
+
+		return null;
+	}
+
+	function handleTouchEnd(event: CustomEvent) {
+		const pageX = event.detail.changedTouches[0].clientX;
+		const pageY = event.detail.changedTouches[0].clientY;
+		const from = event.detail.from;
+
+		sectionRefs.forEach((ref, index) => {
+			if (isItemWithinBoundry(ref.getScreenPosition(), pageX, pageY)) {
+				dropIntoSection(event.detail.item, from, sections[index]);
+			} else {
+			}
+		});
+		const itemListPost = getItemListScreenPosition();
+		if (itemListPost && isItemWithinBoundry(itemListPost, pageX, pageY)) {
+			addItemToList(event.detail.item);
+		} else {
+			//none
+		}
+	}
+
+	function isItemWithinBoundry(
+		screenPosition: { top: number; left: number; bottom: number; right: number },
+		itemX: number,
+		itemY: number
+	) {
+		return (
+			itemX >= screenPosition.left &&
+			itemX <= screenPosition.right &&
+			itemY >= screenPosition.top &&
+			itemY <= screenPosition.bottom
+		);
+	}
 </script>
 
 <svelte:component this={SectionContainerComponent}>
-	{#each sections as section}
-		<Section {SectionComponent} {section} handleDrop={drop}>
+	{#each sections as section, sectionIdx}
+		<Section {SectionComponent} {section} handleDrop={drop} bind:this={sectionRefs[sectionIdx]}>
 			{#each section.items as item}
-				<Item {item} {ItemComponent} />
+				<Item {item} {ItemComponent} on:touchend={handleTouchEnd} />
 			{/each}
 		</Section>
 	{/each}
 </svelte:component>
-<div on:drop={(e) => drop(e, null)} on:dragover={allowDrop}>
+<div on:drop={(e) => drop(e, null)} on:dragover={allowDrop} bind:this={itemListRef}>
 	<svelte:component this={ItemContainerComponent}>
 		{#each items as item}
-			<Item {item} {ItemComponent} />
+			<Item {item} {ItemComponent} on:touchend={handleTouchEnd} />
 		{/each}
 	</svelte:component>
 </div>

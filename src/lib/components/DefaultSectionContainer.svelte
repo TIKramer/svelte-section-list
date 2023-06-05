@@ -1,6 +1,5 @@
 <div>
 	<h2>Sections</h2>
-
 	<div class="container">
 		<slot />
 	</div>

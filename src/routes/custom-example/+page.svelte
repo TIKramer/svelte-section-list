@@ -5,13 +5,13 @@
 	import CustomItemContainer from '../components/CustomItemContainer.svelte';
 	import CustomSectionContainer from '../components/CustomSectionContainer.svelte';
 
-	const items = [
+	let items = [
 		{ id: 1, name: 'Custom Item 1' },
 		{ id: 2, name: 'Custom Item 2' },
 		{ id: 3, name: 'Custom Item 3' }
 	];
 
-	const sections = [
+	let sections = [
 		{
 			title: 'Custom Section 1',
 			items: [
@@ -21,11 +21,12 @@
 		},
 		{ title: 'Custom Section 2', items: [] }
 	];
+
 </script>
 
 <DraggableSections
 	{items}
-	{sections}
+	bind:sections
 	ItemComponent={CustomItemComponent}
 	SectionComponent={CustomSectionComponent}
 	ItemContainerComponent={CustomItemContainer}
