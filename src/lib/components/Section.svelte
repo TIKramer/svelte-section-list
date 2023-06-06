@@ -27,7 +27,6 @@
 	}
 </script>
 
-{#key section}
 	<div
 		class="section"
 		id={`section-${section.title}`}
@@ -39,4 +38,3 @@
 			<slot />
 		</svelte:component>
 	</div>
-{/key}

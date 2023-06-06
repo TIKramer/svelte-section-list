@@ -55,18 +55,16 @@
 	}
 </script>
 
-{#key item}
-	<div
-		draggable="true"
-		on:dragstart={dragstart}
-		on:touchstart|passive={touchstart}
-		on:touchend|passive={touchend}
-		on:touchmove|passive={touchmove}
-		class="item"
-	>
-		<svelte:component this={ItemComponent} {item} />
-	</div>
-{/key}
+<div
+	draggable="true"
+	on:dragstart={dragstart}
+	on:touchstart|passive={touchstart}
+	on:touchend|passive={touchend}
+	on:touchmove|passive={touchmove}
+	class="item"
+>
+	<svelte:component this={ItemComponent} {item} />
+</div>
 
 <style>
 	.item {

@@ -1,6 +1,6 @@
 {
 	"name": "svelte-section-list",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "a headless draggable section list for svelte",
 	"scripts": {
 		"dev": "vite dev",
